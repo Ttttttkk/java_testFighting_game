@@ -9,28 +9,33 @@ public class User {
     private boolean status;
 
     public User() {
-        id=createID();
-        //修改status值
-        status=true;
+        id = createID();
+        status = true;
     }
 
-    public User( String username, String password) {
-        id=createID();
+    public User(String username, String password) {
+        id = createID();
         this.username = username;
         this.password = password;
-        status=true;
+        status = true;
     }
-    //随机生成id 格式heima+5位随机数
-    public String createID(){
-      StringBuilder sb=new StringBuilder("heima");
-        Random r=new Random();
+
+    public User(String id, String username, String password, boolean status) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.status = status;
+    }
+
+    public String createID() {
+        StringBuilder sb = new StringBuilder("heima");
+        Random r = new Random();
         for (int i = 0; i < 5; i++) {
             int num = r.nextInt(10);
             sb.append(num);
         }
         return sb.toString();
     }
-
 
     public String getId() {
         return id;
